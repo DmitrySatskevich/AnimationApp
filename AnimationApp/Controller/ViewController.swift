@@ -6,14 +6,19 @@
 //
 
 import UIKit
+import Spring
 
 class ViewController: UIViewController {
 
+    @IBOutlet weak var springView: SpringView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        
     }
 
-
+    @IBAction func sprinBtnAction(_ sender: SpringButton) {
+        
+    }
 }
 
