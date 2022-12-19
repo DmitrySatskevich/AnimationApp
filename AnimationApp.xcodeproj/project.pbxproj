@@ -118,8 +118,8 @@
 			children = (
 				F5162A28294E332D00E25DCB /* AppDelegate */,
 				F5162A29294E336700E25DCB /* Model */,
-				F5162A26294E330A00E25DCB /* Controller */,
 				F5162A27294E331900E25DCB /* View */,
+				F5162A26294E330A00E25DCB /* Controller */,
 				F5C67AB2294E28C60063C51F /* Assets.xcassets */,
 				F5C67AB7294E28C60063C51F /* Info.plist */,
 			);

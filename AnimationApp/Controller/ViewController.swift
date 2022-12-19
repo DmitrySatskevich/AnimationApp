@@ -8,10 +8,9 @@
 import UIKit
 import Spring
 
-class ViewController: UIViewController {
+final class ViewController: UIViewController {
 
     @IBOutlet weak var springView: SpringView!
-    @IBOutlet weak var springButton: SpringButton!
     
     @IBOutlet weak var nameAnimationOutlet: UILabel!
     @IBOutlet weak var forceOutlet: UILabel!
@@ -21,10 +20,8 @@ class ViewController: UIViewController {
     
     var count = 0
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        cornerRadius()
+    override func viewWillLayoutSubviews() {
+        springView.layer.cornerRadius = springView.frame.width / 2
     }
 
     @IBAction func sprinBtnAction(_ sender: SpringButton) {
@@ -41,10 +38,11 @@ class ViewController: UIViewController {
         case 3:
             squeezeAnimation()
             count = 0
-        default:
-            break
+        default: break
         }
     }
+    
+    // MARK: - Private Func
     
     private func squeezeAnimation() {
         springView.animation = AnimationEnum.squeeze.rawValue
@@ -52,11 +50,11 @@ class ViewController: UIViewController {
         springView.force = 1.29
         springView.duration = 0.20
         springView.delay = 1.56
-        nameAnimationOutlet.text = "squeeze"
-        forceOutlet.text = "1.29"
-        durationOutlet.text = "0.20"
-        delayOutlet.text = "1.56"
-        curveOutlet.text = "easeOut"
+        nameAnimationOutlet.text = springView.animation
+        forceOutlet.text = String(Float(springView.force))
+        durationOutlet.text = String(Float(springView.duration))
+        delayOutlet.text = String(Float(springView.delay))
+        curveOutlet.text = springView.curve
         springView.backgroundColor = .yellow
         
         springView.animate()
@@ -68,11 +66,11 @@ class ViewController: UIViewController {
         springView.force = 1.34
         springView.duration = 0.75
         springView.delay = 0.80
-        nameAnimationOutlet.text = "morph"
-        forceOutlet.text = "1.34"
-        durationOutlet.text = "0.75"
-        delayOutlet.text = "0.80"
-        curveOutlet.text = "easeIn"
+        nameAnimationOutlet.text = springView.animation
+        forceOutlet.text = String(Float(springView.force))
+        durationOutlet.text = String(Float(springView.duration))
+        delayOutlet.text = String(Float(springView.delay))
+        curveOutlet.text = springView.curve
         springView.backgroundColor = .green
         
         springView.animate()
@@ -84,11 +82,11 @@ class ViewController: UIViewController {
         springView.force = 0.56
         springView.duration = 0.24
         springView.delay = 1.78
-        nameAnimationOutlet.text = "pop"
-        forceOutlet.text = "0.56"
-        durationOutlet.text = "0.24"
-        delayOutlet.text = "1.78"
-        curveOutlet.text = "linear"
+        nameAnimationOutlet.text = springView.animation
+        forceOutlet.text = String(Float(springView.force))
+        durationOutlet.text = String(Float(springView.duration))
+        delayOutlet.text = String(Float(springView.delay))
+        curveOutlet.text = springView.curve
         springView.backgroundColor = .black
         
         springView.animate()
@@ -100,22 +98,14 @@ class ViewController: UIViewController {
         springView.force = 1.44
         springView.duration = 0.58
         springView.delay = 1.22
-        nameAnimationOutlet.text = "shake"
-        forceOutlet.text = "1.44"
-        durationOutlet.text = "0.58"
-        delayOutlet.text = "1.22"
-        curveOutlet.text = "spring"
+        nameAnimationOutlet.text = springView.animation
+        forceOutlet.text = String(Float(springView.force))
+        durationOutlet.text = String(Float(springView.duration))
+        delayOutlet.text = String(Float(springView.delay))
+        curveOutlet.text = springView.curve
         springView.backgroundColor = .blue
         
         springView.animate()
     }
-    
-    private func cornerRadius() {
-        let width: CGFloat = UIScreen.main.bounds.width * 0.733
-        springView.frame = CGRect (x: 0, y: 0, width: width, height: width)
-        springView.layer.masksToBounds = true
-        springView.layer.cornerRadius = width / 2
-    }
-    
 }
 
